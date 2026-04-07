@@ -8,3 +8,124 @@ define o documento em HTML5
   <!-- permite acentos e caractéres especiais -->
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <!-faz site se adaptar a celulares (responsividade)-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agroforte - Futuro Sustentável</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container">
+        <h1 class="logo">🌱 Agroforte</h1>
+
+        <nav id="menu">
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#solucoes">Soluções</a></li>
+                <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="hamburger" id="hamburger">
+            ☰
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h2>Cultivando hoje o futuro sustentável</h2>
+        <p>Inovação e tecnologia para um agronegócio mais forte e responsável.</p>
+        <a href="#contato" class="btn">Fale Conosco</a>
+    </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre" class="section">
+    <div class="container">
+        <h2>Sobre a Agroforte</h2>
+        <p>
+            A Agroforte é referência em inovação no agronegócio, conectando tecnologia,
+            produtividade e sustentabilidade. Nosso compromisso é fortalecer o campo
+            com soluções inteligentes que respeitam o meio ambiente e garantem um futuro melhor.
+        </p>
+    </div>
+</section>
+
+<!-- SOLUÇÕES -->
+<section id="solucoes" class="section bg-light">
+    <div class="container">
+        <h2>Nossas Soluções</h2>
+
+        <div class="cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef" alt="">
+                <h3>Tecnologia Agrícola</h3>
+                <p>Monitoramento e automação para aumentar produtividade.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1598514983318-2f64f8f4796c" alt="">
+                <h3>Irrigação Inteligente</h3>
+                <p>Uso eficiente da água com sensores e análise de dados.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231" alt="">
+                <h3>Energia Limpa</h3>
+                <p>Soluções com energia solar para reduzir custos e impactos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SUSTENTABILIDADE -->
+<section id="sustentabilidade" class="section">
+    <div class="container">
+        <h2>Sustentabilidade</h2>
+
+        <div class="sustentabilidade">
+            <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf" alt="">
+
+            <p>
+                Promovemos práticas agrícolas sustentáveis que preservam recursos naturais,
+                reduzem emissões e aumentam a eficiência produtiva. Nosso foco é garantir
+                um equilíbrio entre crescimento econômico e responsabilidade ambiental.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="section bg-light">
+    <div class="container">
+        <h2>Contato</h2>
+
+        <form id="formContato">
+            <input type="text" id="nome" placeholder="Seu nome">
+            <input type="email" id="email" placeholder="Seu email">
+            <textarea id="mensagem" placeholder="Sua mensagem"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+
+        <p id="msg"></p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Agroforte - Todos os direitos reservados</p>
+    <p>🌱 Conectando inovação e sustentabilidade</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
