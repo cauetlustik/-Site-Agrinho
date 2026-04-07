@@ -11,12 +11,11 @@ define o documento em HTML5
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agroforte - Futuro Sustentável</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agroforte - Futuro Sustentável</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -24,28 +23,27 @@ define o documento em HTML5
 <header id="header">
     <div class="container header-container">
         <h1 class="logo">🌱 Agroforte</h1>
-
         <nav id="menu">
             <ul>
                 <li><a href="#home">Início</a></li>
                 <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#problemas">Problemas</a></li>
                 <li><a href="#solucoes">Soluções</a></li>
-                <li><a href="#projetos">Projetos</a></li>
                 <li><a href="#sustentabilidade">Sustentabilidade</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
-
         <div class="hamburger" id="hamburger">☰</div>
     </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO COM PARALLAX -->
 <section class="hero" id="home">
+    <div class="hero-overlay"></div>
     <div class="hero-content">
-        <h2 class="reveal fade">Cultivando hoje o futuro sustentável</h2>
-        <p class="reveal fade-delay">Inovação e tecnologia para um agronegócio mais forte e responsável.</p>
-        <a href="#contato" class="btn reveal fade-delay2">Fale Conosco</a>
+        <h2 class="reveal fade">O campo não espera: eficiência e sustentabilidade são urgentes</h2>
+        <p class="reveal fade-delay">Transformando tecnologia e inovação em resultados reais para o agronegócio.</p>
+        <a href="#contato" class="btn reveal fade-delay2">Transforme sua fazenda</a>
     </div>
 </section>
 
@@ -54,70 +52,52 @@ define o documento em HTML5
     <div class="container">
         <h2 class="section-title reveal fade">Sobre a Agroforte</h2>
         <p class="reveal fade-delay">
-            A Agroforte conecta tecnologia, produtividade e sustentabilidade, oferecendo soluções inovadoras para o agronegócio.
-            Nosso compromisso é fortalecer o campo com responsabilidade ambiental e excelência tecnológica.
+            A Agroforte une inovação, tecnologia e sustentabilidade para fortalecer o agronegócio brasileiro. 
+            Nosso objetivo é aumentar produtividade, reduzir impactos ambientais e preparar o campo para o futuro.
         </p>
-
-        <!-- FAQ Interativo -->
-        <div class="faq reveal fade-delay2">
-            <div class="faq-item">
-                <h3>Qual é nosso foco principal?</h3>
-                <p>Inovação agrícola com práticas sustentáveis e uso eficiente de recursos naturais.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Atendemos todo o Brasil?</h3>
-                <p>Sim! Nossos projetos cobrem desde pequenas propriedades até grandes fazendas em todo o país.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Quais tecnologias utilizamos?</h3>
-                <p>Automação, sensores IoT, irrigação inteligente e energia limpa para todas as operações.</p>
-            </div>
-        </div>
     </div>
 </section>
 
-<!-- SOLUÇÕES -->
-<section id="solucoes" class="section bg-light">
+<!-- PROBLEMAS URGENTES -->
+<section id="problemas" class="section bg-light">
     <div class="container">
-        <h2 class="section-title reveal fade">Nossas Soluções</h2>
-
+        <h2 class="section-title reveal fade">Problemas que exigem ação</h2>
         <div class="cards">
             <div class="card reveal slide-left">
-                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef" alt="Tecnologia Agrícola">
-                <h3>Tecnologia Agrícola</h3>
-                <p>Monitoramento e automação para aumentar produtividade.</p>
+                <h3>Perda de produtividade</h3>
+                <p>Propriedades sem tecnologia avançada perdem até 30% da produção anual.</p>
             </div>
-
             <div class="card reveal slide-up">
-                <img src="https://images.unsplash.com/photo-1598514983318-2f64f8f4796c" alt="Irrigação Inteligente">
-                <h3>Irrigação Inteligente</h3>
-                <p>Uso eficiente da água com sensores e análise de dados.</p>
+                <h3>Uso excessivo de água</h3>
+                <p>Água mal gerida impacta solo e produtividade, gerando desperdício crítico.</p>
             </div>
-
             <div class="card reveal slide-right">
-                <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231" alt="Energia Limpa">
-                <h3>Energia Limpa</h3>
-                <p>Soluções com energia solar para reduzir custos e impactos.</p>
+                <h3>Impactos ambientais</h3>
+                <p>Solo degradado e emissão de carbono afetam sustentabilidade e lucro a longo prazo.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- PROJETOS / CASES -->
-<section id="projetos" class="section">
+<!-- SOLUÇÕES EFICIENTES -->
+<section id="solucoes" class="section">
     <div class="container">
-        <h2 class="section-title reveal fade">Projetos Recentes</h2>
-
-        <div class="projects">
-            <div class="project reveal slide-left">
-                <img src="https://images.unsplash.com/photo-1581091870620-5f16e6f3b21f" alt="Projeto Fazenda Sustentável">
-                <h3>Fazenda Sustentável</h3>
-                <p>Implementação de tecnologia solar e irrigação inteligente em 50 hectares.</p>
+        <h2 class="section-title reveal fade">Nossas Soluções</h2>
+        <div class="cards">
+            <div class="card reveal slide-left">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef" alt="Automação">
+                <h3>Automação Inteligente</h3>
+                <p>Aumento de produtividade em até 30% através de monitoramento e gestão automatizada.</p>
             </div>
-            <div class="project reveal slide-right">
-                <img src="https://images.unsplash.com/photo-1573197296291-23deaf7e89c0" alt="Automação Agrícola">
-                <h3>Automação Agrícola</h3>
-                <p>Monitoramento de colheita e sensores IoT para otimização de produção.</p>
+            <div class="card reveal slide-up">
+                <img src="https://images.unsplash.com/photo-1598514983318-2f64f8f4796c" alt="Irrigação">
+                <h3>Irrigação Inteligente</h3>
+                <p>Redução de consumo de água em até 40%, garantindo eficiência e sustentabilidade.</p>
+            </div>
+            <div class="card reveal slide-right">
+                <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231" alt="Energia Limpa">
+                <h3>Energia Renovável</h3>
+                <p>Energia solar e limpa para reduzir custos em até 50% e minimizar impactos ambientais.</p>
             </div>
         </div>
     </div>
@@ -126,39 +106,33 @@ define o documento em HTML5
 <!-- SUSTENTABILIDADE -->
 <section id="sustentabilidade" class="section bg-light">
     <div class="container">
-        <h2 class="section-title reveal fade">Sustentabilidade</h2>
-
+        <h2 class="section-title reveal fade">Resultados Sustentáveis</h2>
         <div class="sustentabilidade">
-            <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf" alt="Práticas Sustentáveis" class="reveal slide-left">
-            <div class="sust-text reveal slide-right">
-                <p>
-                    Promovemos práticas agrícolas sustentáveis que preservam recursos naturais,
-                    reduzem emissões e aumentam a eficiência produtiva. Nosso foco é garantir
-                    um equilíbrio entre crescimento econômico e responsabilidade ambiental.
-                </p>
+            <div class="sust-text reveal slide-left">
                 <ul>
-                    <li>Redução de consumo de água</li>
-                    <li>Energia limpa e renovável</li>
-                    <li>Preservação de solo e biodiversidade</li>
+                    <li>💧 Redução de consumo de água: -40%</li>
+                    <li>⚡ Economia de energia: -50%</li>
+                    <li>🌱 Preservação do solo e biodiversidade</li>
+                    <li>🌍 Minimização de emissões de carbono</li>
                 </ul>
             </div>
+            <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf" alt="Sustentabilidade" class="reveal slide-right">
         </div>
     </div>
 </section>
 
-<!-- CONTATO -->
+<!-- CONTATO AVANÇADO -->
 <section id="contato" class="section">
     <div class="container">
-        <h2 class="section-title reveal fade">Contato</h2>
-
-        <form id="formContato" class="reveal fade-delay">
-            <input type="text" id="nome" placeholder="Seu nome">
-            <input type="email" id="email" placeholder="Seu email">
+        <h2 class="section-title reveal fade">Entre em Contato</h2>
+        <p class="reveal fade-delay">Preencha o formulário e nossa equipe iniciará sua transformação sustentável.</p>
+        <form id="formContato" class="reveal fade-delay2">
+            <input type="text" id="nome" placeholder="Nome completo">
+            <input type="email" id="email" placeholder="Email">
             <textarea id="mensagem" placeholder="Sua mensagem"></textarea>
             <button type="submit">Enviar</button>
         </form>
-
-        <p id="msg"></p>
+        <p id="msg" class="feedback"></p>
     </div>
 </section>
 
@@ -169,7 +143,6 @@ define o documento em HTML5
 <footer>
     <div class="container">
         <p>© 2026 Agroforte - Todos os direitos reservados</p>
-        <p>🌱 Conectando inovação e sustentabilidade</p>
         <div class="socials">
             <a href="#">LinkedIn</a> |
             <a href="#">Instagram</a> |
