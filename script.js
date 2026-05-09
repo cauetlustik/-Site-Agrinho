@@ -1,143 +1,66 @@
-// ============================
-// MENU MOBILE
-// ============================
-const hamburger = document.getElementById('hamburger');
-const menu = document.querySelector('nav');
+Vou substituir 2 imagens problemáticas (uma duplicada e uma menos óbvia para o tema):
+Action: file_editor str_replace /app/site/index.html --old-str "            <div class=\"tech-item reverse reveal\" data-reveal=\"right\">
+                <img src=\"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1000&q=80\" alt=\"Tablet em mãos analisando solo\" />
+                <div class=\"tech-text\">
+                    <h3><i class=\"fa-solid fa-microchip\"></i> Internet das Coisas (IoT)</h3>
+                    <p>
+                        Sensores no solo, no gado e nas máquinas conversam entre si. Decisões que antes
+                        levavam dias, hoje acontecem em segundos.
+                    </p>
+                </div>
+            </div>
 
-hamburger.addEventListener('click', () => {
-    menu.classList.toggle('active');
-});
+            <div class=\"tech-item reveal\" data-reveal=\"left\">
+                <img src=\"https://images.unsplash.com/photo-1530268729831-4b0b9e170218?auto=format&fit=crop&w=1000&q=80\" alt=\"Trator moderno em campo\" />
+                <div class=\"tech-text\">
+                    <h3><i class=\"fa-solid fa-satellite-dish\"></i> Agricultura de Precisão</h3>
+                    <p>
+                        GPS, mapas de produtividade e máquinas autônomas aplicam a quantidade exata de
+                        insumo no lugar exato — economia e meio ambiente lado a lado.
+                    </p>
+                </div>
+            </div>
 
-// ============================
-// SCROLLREVEAL SIMPLES
-// ============================
-const reveals = document.querySelectorAll('.reveal');
+            <div class=\"tech-item reverse reveal\" data-reveal=\"right\">
+                <img src=\"https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1000&q=80\" alt=\"Inteligência artificial agrícola\" />
+                <div class=\"tech-text\">
+                    <h3><i class=\"fa-solid fa-brain\"></i> Inteligência Artificial</h3>
+                    <p>
+                        Algoritmos preveem safras, otimizam rotas e antecipam doenças. A IA é a nova
+                        enxada do agricultor moderno.
+                    </p>
+                </div>
+            </div>" --new-str "            <div class=\"tech-item reverse reveal\" data-reveal=\"right\">
+                <img src=\"https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=1000&q=80\" alt=\"Plantação de milho com fileiras alinhadas\" />
+                <div class=\"tech-text\">
+                    <h3><i class=\"fa-solid fa-microchip\"></i> Internet das Coisas (IoT)</h3>
+                    <p>
+                        Sensores no solo, no gado e nas máquinas conversam entre si. Decisões que antes
+                        levavam dias, hoje acontecem em segundos.
+                    </p>
+                </div>
+            </div>
 
-function reveal() {
-    const windowHeight = window.innerHeight;
-    reveals.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-        const elementVisible = 150;
-        if (elementTop < windowHeight - elementVisible) {
-            el.classList.add('active');
-        }
-    });
-}
+            <div class=\"tech-item reveal\" data-reveal=\"left\">
+                <img src=\"https://images.unsplash.com/photo-1530268729831-4b0b9e170218?auto=format&fit=crop&w=1000&q=80\" alt=\"Trator moderno em campo de trigo\" />
+                <div class=\"tech-text\">
+                    <h3><i class=\"fa-solid fa-satellite-dish\"></i> Agricultura de Precisão</h3>
+                    <p>
+                        GPS, mapas de produtividade e máquinas autônomas aplicam a quantidade exata de
+                        insumo no lugar exato — economia e meio ambiente lado a lado.
+                    </p>
+                </div>
+            </div>
 
-window.addEventListener('scroll', reveal);
-window.addEventListener('load', reveal);
-
-// ============================
-// BOTÃO VOLTAR AO TOPO
-// ============================
-const topBtn = document.getElementById('topBtn');
-
-window.onscroll = function() {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        topBtn.style.display = "block";
-    } else {
-        topBtn.style.display = "none";
-    }
-};
-
-topBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// ============================
-// FORMULÁRIO DE CONTATO
-// ============================
-const form = document.getElementById('formContato');
-const msg = document.getElementById('msg');
-
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const nome = document.getElementById('nome').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const mensagem = document.getElementById('mensagem').value.trim();
-
-    if(nome === '' || email === '' || mensagem === '') {
-        msg.textContent = 'Por favor, preencha todos os campos!';
-        msg.style.color = 'red';
-        return;
-    }
-
-    // Simula envio
-    msg.textContent = 'Mensagem enviada com sucesso!';
-    msg.style.color = 'green';
-    form.reset();
-});
-
-// ============================
-// QUIZ INTERATIVO
-// ============================
-const quizContainer = document.getElementById('quiz-container');
-const quizQuestion = document.getElementById('quiz-question');
-const quizOptions = document.querySelectorAll('.quiz-btn');
-const quizFeedback = document.getElementById('quiz-feedback');
-
-const quizData = [
-    {
-        question: "Qual prática reduz mais o consumo de água na agricultura?",
-        options: ["Plantio convencional", "Irrigação inteligente", "Uso de fertilizantes químicos"],
-        answer: "Irrigação inteligente"
-    },
-    {
-        question: "Qual energia diminui impactos ambientais e custos?",
-        options: ["Energia solar", "Energia a diesel", "Energia elétrica comum"],
-        answer: "Energia solar"
-    },
-    {
-        question: "Qual técnica ajuda a preservar o solo e biodiversidade?",
-        options: ["Rotação de culturas", "Uso excessivo de fertilizantes", "Desmatamento"],
-        answer: "Rotação de culturas"
-    }
-];
-
-let currentQuiz = 0;
-
-function loadQuiz() {
-    const current = quizData[currentQuiz];
-    quizQuestion.textContent = current.question;
-    quizOptions.forEach((btn, index) => {
-        btn.textContent = current.options[index];
-        btn.disabled = false;
-        btn.style.background = '#ff7043';
-        btn.style.color = '#fff';
-    });
-    quizFeedback.textContent = '';
-}
-
-quizOptions.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const selected = btn.textContent;
-        const correct = quizData[currentQuiz].answer;
-        if (selected === correct) {
-            quizFeedback.textContent = "✅ Correto!";
-            quizFeedback.style.color = 'green';
-            btn.style.background = 'green';
-        } else {
-            quizFeedback.textContent = `❌ Errado! A resposta correta é "${correct}"`;
-            quizFeedback.style.color = 'red';
-            btn.style.background = 'red';
-        }
-        quizOptions.forEach(b => b.disabled = true);
-
-        // Avança para próxima pergunta após 2 segundos
-        setTimeout(() => {
-            currentQuiz++;
-            if(currentQuiz < quizData.length){
-                loadQuiz();
-            } else {
-                quizQuestion.textContent = "🎉 Parabéns! Você completou o quiz!";
-                document.querySelector('.quiz-options').style.display = 'none';
-                quizFeedback.textContent = '';
-            }
-        }, 2000);
-    });
-});
-
-// Inicializa quiz
-loadQuiz();
-
+            <div class=\"tech-item reverse reveal\" data-reveal=\"right\">
+                <img src=\"https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1000&q=80\" alt=\"Estufa moderna com plantio tecnológico\" />
+                <div class=\"tech-text\">
+                    <h3><i class=\"fa-solid fa-brain\"></i> Inteligência Artificial</h3>
+                    <p>
+                        Algoritmos preveem safras, otimizam rotas e antecipam doenças. A IA é a nova
+                        enxada do agricultor moderno.
+                    </p>
+                </div>
+            </div>"
+Observation: Edit was successful.
        
