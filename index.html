@@ -1,46 +1,164 @@
-Vou trocar as imagens menos conectadas ao tema (especialmente uma duplicada na seção Tecnologia) por outras 100% agro:
-Action: file_editor view /app/site/index.html
-Observation: [Showing lines 160-200 of 375 total] /app/site/index.html:
-160|            </article>
-161|
-162|            <article class="card reveal" data-reveal="up">
-163|                <div class="card-icon"><i class="fa-solid fa-tree"></i></div>
-164|                <h3>Reflorestamento Produtivo</h3>
-165|                <p>Áreas de preservação permanente recompostas com espécies nativas geram serviços ambientais.</p>
-166|            </article>
-167|
-168|            <article class="card reveal" data-reveal="up">
-169|                <div class="card-icon"><i class="fa-solid fa-sun"></i></div>
-170|                <h3>Energia Solar no Campo</h3>
-171|                <p>Painéis fotovoltaicos abastecem propriedades, reduzindo custos e emissões de carbono.</p>
-172|            </article>
-173|        </div>
-174|    </div>
-175|</section>
-176|
-177|<!-- ============== IMPACTO / ESTATÍSTICAS ============== -->
-178|<section id="impacto" class="section impacto">
-179|    <div class="impacto-bg">
-180|        <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=2000&q=80" alt="Vista aérea de plantação verde" />
-181|        <div class="impacto-overlay"></div>
-182|    </div>
-183|    <div class="container">
-184|        <div class="section-head reveal center light">
-185|            <span class="eyebrow light">03 — Impacto</span>
-186|            <h2 class="h2">Números que <em>brotam</em> esperança</h2>
-187|            <p class="lead">
-188|                Resultados reais do agro brasileiro quando ciência, tecnologia e sustentabilidade
-189|                caminham juntas.
-190|            </p>
-191|        </div>
-192|
-193|        <div class="stats">
-194|            <div class="stat reveal">
-195|                <span class="num" data-target="33" data-suffix=" mi">0</span>
-196|                <p>hectares de baixo carbono no Brasil</p>
-197|            </div>
-198|            <div class="stat reveal">
-199|                <span class="num" data-target="60" data-suffix="%">0</span>
-200|                <p>menos consumo de água com irrigação inteligente</p>
- [41 lines shown. Remaining: lines 201-375 (175 lines). Use view_range parameter to continue.]
-               
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte, Futuro Sustentável</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 id="logo">Agro Forte, Futuro Sustentável</h1>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#desafios">Desafios</a></li>
+                    <li><a href="#solucoes">Soluções</a></li>
+                    <li><a href="#quiz">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h2>Equilíbrio entre Produção e Meio Ambiente</h2>
+            <p>Descubra como a inovação e a sustentabilidade estão moldando o futuro do agronegócio.</p>
+            <a href="#sobre" class="btn">Saiba Mais</a>
+        </div>
+        <div class="hero-image">
+            <!-- Imagem impactante de uma fazenda moderna com elementos naturais -->
+            <img src="images/hero-farm.jpg" alt="Fazenda moderna em harmonia com a natureza">
+        </div>
+    </section>
+
+    <main class="container">
+
+        <section id="sobre" class="section">
+            <div class="section-content">
+                <h2 class="section-title">O Que é o Agro Sustentável?</h2>
+                <p>O agronegócio sustentável busca otimizar a produção agrícola, pecuária e florestal, garantindo a segurança alimentar e o desenvolvimento econômico, ao mesmo tempo em que minimiza o impacto ambiental e social. É um modelo que pensa nas próximas gerações, preservando recursos naturais como solo, água e biodiversidade.</p>
+                <div class="image-gallery">
+                    <img src="images/sustainable-farming-1.jpg" alt="Técnicas de cultivo sustentável">
+                    <img src="images/sustainable-farming-2.jpg" alt="Uso de tecnologia no campo">
+                </div>
+            </div>
+        </section>
+
+        <section id="desafios" class="section bg-light">
+            <div class="section-content">
+                <h2 class="section-title">Os Grandes Desafios</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="images/climate-change.png" alt="Mudanças Climáticas">
+                        <h3>Mudanças Climáticas</h3>
+                        <p>Aumento da frequência de eventos extremos, como secas e inundações, impactam diretamente a produtividade e exigem novas estratégias de adaptação.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/water-scarcity.png" alt="Escassez de Água">
+                        <h3>Escassez de Água</h3>
+                        <p>O uso eficiente e a gestão responsável dos recursos hídricos são cruciais para garantir a produção em regiões com disponibilidade limitada de água.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/biodiversity-loss.png" alt="Perda de Biodiversidade">
+                        <h3>Perda de Biodiversidade</h3>
+                        <p>A conservação de ecossistemas e a promoção da biodiversidade são essenciais para a saúde do solo, polinização e controle natural de pragas.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/soil-degradation.png" alt="Degradação do Solo">
+                        <h3>Degradação do Solo</h3>
+                        <p>Práticas inadequadas podem levar à erosão, perda de nutrientes e compactação, comprometendo a fertilidade a longo prazo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solucoes" class="section">
+            <div class="section-content">
+                <h2 class="section-title">Soluções Inovadoras</h2>
+                <div class="solution-list">
+                    <div class="solution-item">
+                        <img src="images/precision-agriculture.jpg" alt="Agricultura de Precisão">
+                        <div>
+                            <h3>Agricultura de Precisão</h3>
+                            <p>Uso de tecnologia (GPS, drones, sensores) para monitorar e aplicar insumos de forma localizada, otimizando o uso de recursos e reduzindo desperdícios.</p>
+                        </div>
+                    </div>
+                    <div class="solution-item">
+                        <img src="images/agroforestry.jpg" alt="Sistemas Agroflorestais">
+                        <div>
+                            <h3>Sistemas Agroflorestais (SAFs)</h3>
+                            <p>Integração de árvores com cultivos agrícolas e/ou animais, promovendo biodiversidade, melhorando a qualidade do solo e a retenção de água.</p>
+                        </div>
+                    </div>
+                    <div class="solution-item">
+                        <img src="images/organic-farming.jpg" alt="Agricultura Orgânica">
+                        <div>
+                            <h3>Agricultura Orgânica e Regenerativa</h3>
+                            <p>Práticas que evitam o uso de agrotóxicos e fertilizantes sintéticos, focando na saúde do solo, compostagem e rotação de culturas.</p>
+                        </div>
+                    </div>
+                    <div class="solution-item">
+                        <img src="images/water-management.jpg" alt="Gestão Hídrica Inteligente">
+                        <div>
+                            <h3>Gestão Hídrica Inteligente</h3>
+                            <p>Técnicas como irrigação por gotejamento, captação de água da chuva e reuso de efluentes para maximizar a eficiência no uso da água.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz" class="section bg-light">
+            <div class="section-content">
+                <h2 class="section-title">Teste seus Conhecimentos!</h2>
+                <div id="quiz-container">
+                    <div id="question-1" class="quiz-question">
+                        <p>Qual a principal vantagem da Agricultura de Precisão?</p>
+                        <button onclick="selectAnswer('1', 'a')">a) Aumento do uso de defensivos</button>
+                        <button onclick="selectAnswer('1', 'b')">b) Otimização do uso de recursos</button>
+                        <button onclick="selectAnswer('1', 'c')">c) Maior dependência de mão de obra</button>
+                        <button onclick="selectAnswer('1', 'd')">d) Redução da produtividade</button>
+                    </div>
+                    <div id="question-2" class="quiz-question hidden">
+                        <p>Sistemas Agroflorestais (SAFs) ajudam a:</p>
+                        <button onclick="selectAnswer('2', 'a')">a) Diminuir a biodiversidade</button>
+                        <button onclick="selectAnswer('2', 'b')">b) Aumentar a erosão do solo</button>
+                        <button onclick="selectAnswer('2', 'c')">c) Melhorar a qualidade do solo e reter água</button>
+                        <button onclick="selectAnswer('2', 'd')">d) Reduzir a produção de biomassa</button>
+                    </div>
+                    <div id="question-3" class="quiz-question hidden">
+                        <p>Qual prática agrícola foca em evitar o uso de agrotóxicos e fertilizantes sintéticos?</p>
+                        <button onclick="selectAnswer('3', 'a')">a) Agricultura Convencional</button>
+                        <button onclick="selectAnswer('3', 'b')">b) Monocultura Intensiva</button>
+                        <button onclick="selectAnswer('3', 'c')">c) Agricultura Orgânica</button>
+                        <button onclick="selectAnswer('3', 'd')">d) Cultivo Hidropônico</button>
+                    </div>
+                    <div id="results" class="hidden">
+                        <h3>Seu Resultado:</h3>
+                        <p id="score-text"></p>
+                        <p id="feedback-text"></p>
+                        <button onclick="restartQuiz()">Tentar Novamente</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Agro Forte, Futuro Sustentável. Todos os direitos reservados.</p>
+            <p>Desenvolvido por MaxAI</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
