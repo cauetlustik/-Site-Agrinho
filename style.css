@@ -1,348 +1,57 @@
-/* =======================
-   RESET E CONFIGURAÇÕES GERAIS
-======================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f5f5f5;
-    scroll-behavior: smooth;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* =======================
-   HEADER
-======================= */
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(28,28,28,0.9);
-    color: #fff;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-}
-
-.logo {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.8rem;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #ff7043;
-}
-
-.hamburger {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-/* =======================
-   HERO
-======================= */
-.hero {
-    position: relative;
-    height: 100vh;
-    background: url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.hero-overlay {
-    position: absolute;
-    top:0; left:0;
-    width:100%;
-    height:100%;
-    background: rgba(0,0,0,0.6);
-}
-
-.hero-content {
-    position: relative;
-    color: #fff;
-    max-width: 800px;
-    padding: 0 1rem;
-}
-
-.hero h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-}
-
-.btn {
-    background: #ff7043;
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    font-weight: bold;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: transform 0.3s, background 0.3s;
-}
-
-.btn:hover {
-    transform: scale(1.05);
-    background: #e64a19;
-}
-
-/* =======================
-   SECTIONS
-======================= */
-.section {
-    padding: 5rem 0;
-}
-
-.bg-light {
-    background: #f5f5f5;
-}
-
-.bg-dark {
-    background: #1c1c1c;
-    color: #fff;
-}
-
-.section-title {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-}
-
-/* =======================
-   CARDS
-======================= */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 2rem;
-}
-
-.card {
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-}
-
-.card:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-}
-
-/* =======================
-   SUSTENTABILIDADE
-======================= */
-.sustentabilidade {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 2rem;
-}
-
-.sustentabilidade img {
-    flex: 1 1 400px;
-    border-radius: 10px;
-}
-
-.sust-text {
-    flex: 1 1 400px;
-}
-
-.sust-text ul {
-    list-style: none;
-    font-size: 1.2rem;
-}
-
-.sust-text ul li {
-    margin-bottom: 1rem;
-}
-
-/* =======================
-   FORMULÁRIO DE CONTATO
-======================= */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-form input, form textarea {
-    padding: 0.75rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    width: 100%;
-}
-
-form button {
-    padding: 0.75rem;
-    background: #2e7d32;
-    color: #fff;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s, background 0.3s;
-}
-
-form button:hover {
-    transform: scale(1.05);
-    background: #1b5e20;
-}
-
-.feedback {
-    text-align: center;
-    margin-top: 0.5rem;
-    font-weight: bold;
-}
-
-/* =======================
-   QUIZ
-======================= */
-#quiz-container {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.quiz-options {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.quiz-btn {
-    padding: 0.75rem;
-    background: #ff7043;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.3s, background 0.3s;
-}
-
-.quiz-btn:hover {
-    transform: scale(1.05);
-    background: #e64a19;
-}
-
-#quiz-feedback {
-    margin-top: 1rem;
-    font-weight: bold;
-}
-
-/* =======================
-   VOLTAR AO TOPO
-======================= */
-#topBtn {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    padding: 0.75rem 1rem;
-    font-size: 1.2rem;
-    border: none;
-    background: #ff7043;
-    color: #fff;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    z-index: 1000;
-    transition: transform 0.3s, background 0.3s;
-}
-
-#topBtn:hover {
-    transform: scale(1.1);
-    background: #e64a19;
-}
-
-/* =======================
-   RESPONSIVO
-======================= */
-@media(max-width:768px) {
-    .hamburger { display: block; }
-    nav { display: none; }
-    nav.active { display: block; background: #1c1c1c; position: absolute; top:60px; right:0; width:200px; text-align:right; padding:1rem; }
-    nav ul { flex-direction: column; gap:1rem; }
-}
-
-/* =======================
-   ANIMAÇÕES (ScrollReveal)
-======================= */
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.fade { }
-.fade-delay { transition-delay: 0.3s; }
-.fade-delay2 { transition-delay: 0.6s; }
-
-.slide-left { transform: translateX(-50px); }
-.slide-left.active { transform: translateX(0); }
-
-.slide-right { transform: translateX(50px); }
-.slide-right.active { transform: translateX(0); }
-
-.slide-up { transform: translateY(50px); }
-.slide-up.active { transform: translateY(0); }
+Action: file_editor view /app/site/index.html
+Observation: [Showing lines 218-270 of 375 total] /app/site/index.html:
+218|            <span class="eyebrow">04 — Tecnologia</span>
+219|            <h2 class="h2">O <em>campo</em> nunca esteve tão <em>conectado</em></h2>
+220|            <p class="lead">
+221|                Da semente ao satélite: a revolução digital que transforma cada hectare em dado.
+222|            </p>
+223|        </div>
+224|
+225|        <div class="tech-grid">
+226|            <div class="tech-item reveal" data-reveal="left">
+227|                <img src="https://images.unsplash.com/photo-1591086423641-ee5fcde4e535?auto=format&fit=crop&w=1000&q=80" alt="Drone agrícola sobrevoando plantação" />
+228|                <div class="tech-text">
+229|                    <h3><i class="fa-solid fa-helicopter"></i> Drones e Sensoriamento</h3>
+230|                    <p>
+231|                        Mapeiam pragas, estresse hídrico e produtividade em tempo real. O produtor enxerga
+232|                        cada planta antes mesmo de pisar na lavoura.
+233|                    </p>
+234|                </div>
+235|            </div>
+236|
+237|            <div class="tech-item reverse reveal" data-reveal="right">
+238|                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1000&q=80" alt="Tablet em mãos analisando solo" />
+239|                <div class="tech-text">
+240|                    <h3><i class="fa-solid fa-microchip"></i> Internet das Coisas (IoT)</h3>
+241|                    <p>
+242|                        Sensores no solo, no gado e nas máquinas conversam entre si. Decisões que antes
+243|                        levavam dias, hoje acontecem em segundos.
+244|                    </p>
+245|                </div>
+246|            </div>
+247|
+248|            <div class="tech-item reveal" data-reveal="left">
+249|                <img src="https://images.unsplash.com/photo-1530268729831-4b0b9e170218?auto=format&fit=crop&w=1000&q=80" alt="Trator moderno em campo" />
+250|                <div class="tech-text">
+251|                    <h3><i class="fa-solid fa-satellite-dish"></i> Agricultura de Precisão</h3>
+252|                    <p>
+253|                        GPS, mapas de produtividade e máquinas autônomas aplicam a quantidade exata de
+254|                        insumo no lugar exato — economia e meio ambiente lado a lado.
+255|                    </p>
+256|                </div>
+257|            </div>
+258|
+259|            <div class="tech-item reverse reveal" data-reveal="right">
+260|                <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1000&q=80" alt="Inteligência artificial agrícola" />
+261|                <div class="tech-text">
+262|                    <h3><i class="fa-solid fa-brain"></i> Inteligência Artificial</h3>
+263|                    <p>
+264|                        Algoritmos preveem safras, otimizam rotas e antecipam doenças. A IA é a nova
+265|                        enxada do agricultor moderno.
+266|                    </p>
+267|                </div>
+268|            </div>
+269|        </div>
+270|    </div>
+ [53 lines shown. Remaining: lines 271-375 (105 lines). Use view_range parameter to continue.]
