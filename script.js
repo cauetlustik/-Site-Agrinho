@@ -1,131 +1,143 @@
-// --- Animação de Escrita para o Título Principal ---
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Animação de Escrita para o Título Principal (header) ---
     const logoElement = document.getElementById('logo');
-    const logoText = logoElement.textContent;
-    logoElement.textContent = ''; // Limpa o texto original
+    // O CSS agora cuida da animação de escrita no header
+    // Podemos usar o JS para outras coisas, como parallax ou scroll effects
 
-    let i = 0;
-    const typingInterval = setInterval(() => {
-        if (i < logoText.length) {
-            logoElement.textContent += logoText.charAt(i);
-            i++;
-        } else {
-            clearInterval(typingInterval);
-        }
-    }, 100); // Velocidade da digitação em milissegundos
-});
-
-// --- Lógica do Quiz ---
-let currentQuestion = 1;
-let score = 0;
-const totalQuestions = 3;
-
-function selectAnswer(questionNumber, selectedAnswer) {
-    const correctAnswer = getCorrectAnswer(questionNumber);
-
-    // Desabilita botões da questão atual para evitar cliques múltiplos
-    const questionElement = document.getElementById(`question-${questionNumber}`);
-    questionElement.querySelectorAll('button').forEach(button => {
-        button.disabled = true;
+    // --- Animação de Entrada para Seções ---
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Para que a animação ocorra apenas uma vez
+            }
+        });
+    }, {
+        threshold: 0.2 // Começa a animar quando 20% do elemento está visível
     });
 
-    // Verifica a resposta
-    if (selectedAnswer === correctAnswer) {
-        score++;
-        // Destaca a resposta correta (opcional, mas bom para feedback)
-        questionElement.querySelector(`button[onclick="selectAnswer('${questionNumber}', '${selectedAnswer}')"]`).classList.add('correct');
-    } else {
-        // Destaca a resposta incorreta e a correta
-        questionElement.querySelector(`button[onclick="selectAnswer('${questionNumber}', '${selectedAnswer}')"]`).classList.add('incorrect');
-        questionElement.querySelector(`button[onclick="selectAnswer('${questionNumber}', '${correctAnswer}')"]`).classList.add('correct');
+    document.querySelectorAll('.section, .card, .solution-item, .impact-item').forEach(element => {
+        element.classList.add('fade-in'); // Adiciona a classe base para animação
+        observer.observe(element);
+    });
+
+    // --- Animação Pulsante no Botão Hero ---
+    const animatedBtn = document.querySelector('.animated-btn');
+    if (animatedBtn) {
+        // A animação 'pulse' já está no CSS, mas podemos adicionar interatividade se quisermos
     }
 
-    // Avança para a próxima questão ou mostra resultados
+    // --- Quiz Lógica ---
+    setupQuiz();
+});
+
+// --- Lógica do Quiz Aprimorada ---
+let currentQuestionIndex = 0;
+let score = 0;
+const questions = [
+    {
+        question: "Qual a principal vantagem da Agricultura de Precisão?",
+        options: [
+            "a) Aumento do uso de defensivos",
+            "b) Otimização do uso de recursos e redução de custos",
+            "c) Maior dependência de mão de obra braçal",
+            "d) Redução da qualidade dos produtos"
+        ],
+        correctAnswer: "b"
+    },
+    {
+        question: "Sistemas Agroflorestais (SAFs) contribuem para:",
+        options: [
+            "a) A concentração de nutrientes em uma única cultura",
+            "b) Aumentar a erosão do solo e poluição hídrica",
+            "c) A melhoria da qualidade do solo, sequestro de carbono e aumento da biodiversidade",
+            "d) A simplificação do manejo e eliminação de pragas"
+        ],
+        correctAnswer: "c"
+    },
+    {
+        question: "O que define a Agricultura Orgânica e Regenerativa?",
+        options: [
+            "a) Uso intensivo de fertilizantes químicos e agrotóxicos de última geração",
+            "b) Foco na saúde do solo, uso de insumos naturais e evitação de químicos sintéticos",
+            "c) Criação de animais em confinamento para otimizar espaço",
+            "d) Produção exclusiva de grãos em grandes monoculturas"
+        ],
+        correctAnswer: "b"
+    }
+];
+
+function setupQuiz() {
+    const quizContainer = document.getElementById('quiz-container');
+    // Limpa o conteúdo anterior e cria a primeira pergunta
+    quizContainer.innerHTML = ''; // Limpa para reconstruir
+    displayQuestion();
+}
+
+function displayQuestion() {
+    const quizContainer = document.getElementById('quiz-container');
+    const questionData = questions[currentQuestionIndex];
+
+    const questionDiv = document.createElement('div');
+    questionDiv.id = `question-${currentQuestionIndex + 1}`;
+    questionDiv.classList.add('quiz-question');
+
+    const questionText = document.createElement('p');
+    questionText.textContent = questionData.question;
+    questionDiv.appendChild(questionText);
+
+    questionData.options.forEach((option, index) => {
+        const button = document.createElement('button');
+        button.textContent = option;
+        button.onclick = () => selectAnswer(currentQuestionIndex, option.charAt(0)); // Usa a primeira letra (a, b, c, d)
+        questionDiv.appendChild(button);
+    });
+
+    quizContainer.appendChild(questionDiv);
+}
+
+function selectAnswer(questionIndex, selectedAnswer) {
+    const correctAnswer = questions[questionIndex].correctAnswer;
+    const currentQuestionElement = document.getElementById(`question-${questionIndex + 1}`);
+    const buttons = currentQuestionElement.querySelectorAll('button');
+
+    // Desabilita todos os botões da questão atual
+    buttons.forEach(button => button.disabled = true);
+
+    let correctButton = null;
+    let selectedButton = null;
+
+    buttons.forEach(button => {
+        const answerLetter = button.textContent.charAt(0).toLowerCase();
+        if (answerLetter === correctAnswer) {
+            button.classList.add('correct');
+            correctButton = button;
+        }
+        if (answerLetter === selectedAnswer) {
+            button.classList.add('incorrect');
+            selectedButton = button;
+        }
+    });
+
+    // Se a resposta selecionada foi incorreta, destaca-a
+    if (selectedAnswer !== correctAnswer) {
+        selectedButton.classList.add('incorrect');
+    } else {
+        score++;
+        selectedButton.classList.add('correct'); // Marca a resposta correta se foi a selecionada
+    }
+
+    // Espera um pouco para mostrar o feedback
     setTimeout(() => {
-        if (currentQuestion < totalQuestions) {
-            document.getElementById(`question-${currentQuestion}`).classList.add('hidden');
-            currentQuestion++;
-            document.getElementById(`question-${currentQuestion}`).classList.remove('hidden');
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            currentQuestionElement.classList.add('hidden');
+            displayQuestion(); // Carrega a próxima pergunta
+            // Para garantir que a nova pergunta apareça com animação
+            setTimeout(() => {
+                document.getElementById(`question-${currentQuestionIndex + 1}`).classList.remove('hidden');
+            }, 50);
         } else {
             showResults();
         }
-    }, 1500); // Espera 1.5 segundos para o usuário ver o feedback
-}
-
-function getCorrectAnswer(questionNumber) {
-    // Define as respostas corretas para cada questão
-    const answers = {
-        '1': 'b', // Otimização do uso de recursos
-        '2': 'c', // Melhorar a qualidade do solo e reter água
-        '3': 'c'  // Agricultura Orgânica
-    };
-    return answers[questionNumber];
-}
-
-function showResults() {
-    document.getElementById('quiz-container').classList.add('hidden');
-    const resultsElement = document.getElementById('results');
-    resultsElement.classList.remove('hidden');
-
-    const scoreTextElement = document.getElementById('score-text');
-    const feedbackTextElement = document.getElementById('feedback-text');
-
-    scoreTextElement.textContent = `${score} de ${totalQuestions} corretas`;
-
-    let feedback = '';
-    if (score === totalQuestions) {
-        feedback = "Parabéns! Você é um expert em agricultura sustentável!";
-    } else if (score >= totalQuestions / 2) {
-        feedback = "Muito bom! Você tem um bom conhecimento sobre o tema.";
-    } else {
-        feedback = "Continue aprendendo! Há muito para descobrir sobre o futuro da agricultura sustentável.";
-    }
-    feedbackTextElement.textContent = feedback;
-}
-
-function restartQuiz() {
-    currentQuestion = 1;
-    score = 0;
-
-    document.getElementById('results').classList.add('hidden');
-    document.getElementById('quiz-container').classList.remove('hidden');
-
-    document.querySelectorAll('.quiz-question').forEach((q, index) => {
-        q.classList.add('hidden');
-        // Resetar estilos dos botões (se houver)
-        q.querySelectorAll('button').forEach(button => {
-            button.classList.remove('correct', 'incorrect');
-            button.disabled = false;
-        });
-    });
-
-    document.getElementById('question-1').classList.remove('hidden');
-}
-
-// --- Animação Sutil ao Scroll (Opcional) ---
-document.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const windowHeight = window.innerHeight;
-        const scrollPosition = window.scrollY;
-
-        // Se a seção estiver visível na tela
-        if (scrollPosition + windowHeight > sectionTop + 50) { // Adiciona um pequeno offset
-            section.style.opacity = '1';
-            section.style.transform = 'translateY(0)';
-        } else {
-            // Mantém opaco para não desaparecer completamente
-            section.style.opacity = '0.5';
-            section.style.transform = 'translateY(20px)';
-        }
-    });
-});
-
-// Inicializa a opacidade e transformação para as seções
-document.querySelectorAll('.section').forEach(section => {
-    section.style.opacity = '0.5';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-});
-
+    }, 1800);
