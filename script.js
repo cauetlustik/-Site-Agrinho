@@ -1,66 +1,131 @@
-Vou substituir 2 imagens problemáticas (uma duplicada e uma menos óbvia para o tema):
-Action: file_editor str_replace /app/site/index.html --old-str "            <div class=\"tech-item reverse reveal\" data-reveal=\"right\">
-                <img src=\"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1000&q=80\" alt=\"Tablet em mãos analisando solo\" />
-                <div class=\"tech-text\">
-                    <h3><i class=\"fa-solid fa-microchip\"></i> Internet das Coisas (IoT)</h3>
-                    <p>
-                        Sensores no solo, no gado e nas máquinas conversam entre si. Decisões que antes
-                        levavam dias, hoje acontecem em segundos.
-                    </p>
-                </div>
-            </div>
+// --- Animação de Escrita para o Título Principal ---
+document.addEventListener('DOMContentLoaded', () => {
+    const logoElement = document.getElementById('logo');
+    const logoText = logoElement.textContent;
+    logoElement.textContent = ''; // Limpa o texto original
 
-            <div class=\"tech-item reveal\" data-reveal=\"left\">
-                <img src=\"https://images.unsplash.com/photo-1530268729831-4b0b9e170218?auto=format&fit=crop&w=1000&q=80\" alt=\"Trator moderno em campo\" />
-                <div class=\"tech-text\">
-                    <h3><i class=\"fa-solid fa-satellite-dish\"></i> Agricultura de Precisão</h3>
-                    <p>
-                        GPS, mapas de produtividade e máquinas autônomas aplicam a quantidade exata de
-                        insumo no lugar exato — economia e meio ambiente lado a lado.
-                    </p>
-                </div>
-            </div>
+    let i = 0;
+    const typingInterval = setInterval(() => {
+        if (i < logoText.length) {
+            logoElement.textContent += logoText.charAt(i);
+            i++;
+        } else {
+            clearInterval(typingInterval);
+        }
+    }, 100); // Velocidade da digitação em milissegundos
+});
 
-            <div class=\"tech-item reverse reveal\" data-reveal=\"right\">
-                <img src=\"https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1000&q=80\" alt=\"Inteligência artificial agrícola\" />
-                <div class=\"tech-text\">
-                    <h3><i class=\"fa-solid fa-brain\"></i> Inteligência Artificial</h3>
-                    <p>
-                        Algoritmos preveem safras, otimizam rotas e antecipam doenças. A IA é a nova
-                        enxada do agricultor moderno.
-                    </p>
-                </div>
-            </div>" --new-str "            <div class=\"tech-item reverse reveal\" data-reveal=\"right\">
-                <img src=\"https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=1000&q=80\" alt=\"Plantação de milho com fileiras alinhadas\" />
-                <div class=\"tech-text\">
-                    <h3><i class=\"fa-solid fa-microchip\"></i> Internet das Coisas (IoT)</h3>
-                    <p>
-                        Sensores no solo, no gado e nas máquinas conversam entre si. Decisões que antes
-                        levavam dias, hoje acontecem em segundos.
-                    </p>
-                </div>
-            </div>
+// --- Lógica do Quiz ---
+let currentQuestion = 1;
+let score = 0;
+const totalQuestions = 3;
 
-            <div class=\"tech-item reveal\" data-reveal=\"left\">
-                <img src=\"https://images.unsplash.com/photo-1530268729831-4b0b9e170218?auto=format&fit=crop&w=1000&q=80\" alt=\"Trator moderno em campo de trigo\" />
-                <div class=\"tech-text\">
-                    <h3><i class=\"fa-solid fa-satellite-dish\"></i> Agricultura de Precisão</h3>
-                    <p>
-                        GPS, mapas de produtividade e máquinas autônomas aplicam a quantidade exata de
-                        insumo no lugar exato — economia e meio ambiente lado a lado.
-                    </p>
-                </div>
-            </div>
+function selectAnswer(questionNumber, selectedAnswer) {
+    const correctAnswer = getCorrectAnswer(questionNumber);
 
-            <div class=\"tech-item reverse reveal\" data-reveal=\"right\">
-                <img src=\"https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1000&q=80\" alt=\"Estufa moderna com plantio tecnológico\" />
-                <div class=\"tech-text\">
-                    <h3><i class=\"fa-solid fa-brain\"></i> Inteligência Artificial</h3>
-                    <p>
-                        Algoritmos preveem safras, otimizam rotas e antecipam doenças. A IA é a nova
-                        enxada do agricultor moderno.
-                    </p>
-                </div>
-            </div>"
-Observation: Edit was successful.
-       
+    // Desabilita botões da questão atual para evitar cliques múltiplos
+    const questionElement = document.getElementById(`question-${questionNumber}`);
+    questionElement.querySelectorAll('button').forEach(button => {
+        button.disabled = true;
+    });
+
+    // Verifica a resposta
+    if (selectedAnswer === correctAnswer) {
+        score++;
+        // Destaca a resposta correta (opcional, mas bom para feedback)
+        questionElement.querySelector(`button[onclick="selectAnswer('${questionNumber}', '${selectedAnswer}')"]`).classList.add('correct');
+    } else {
+        // Destaca a resposta incorreta e a correta
+        questionElement.querySelector(`button[onclick="selectAnswer('${questionNumber}', '${selectedAnswer}')"]`).classList.add('incorrect');
+        questionElement.querySelector(`button[onclick="selectAnswer('${questionNumber}', '${correctAnswer}')"]`).classList.add('correct');
+    }
+
+    // Avança para a próxima questão ou mostra resultados
+    setTimeout(() => {
+        if (currentQuestion < totalQuestions) {
+            document.getElementById(`question-${currentQuestion}`).classList.add('hidden');
+            currentQuestion++;
+            document.getElementById(`question-${currentQuestion}`).classList.remove('hidden');
+        } else {
+            showResults();
+        }
+    }, 1500); // Espera 1.5 segundos para o usuário ver o feedback
+}
+
+function getCorrectAnswer(questionNumber) {
+    // Define as respostas corretas para cada questão
+    const answers = {
+        '1': 'b', // Otimização do uso de recursos
+        '2': 'c', // Melhorar a qualidade do solo e reter água
+        '3': 'c'  // Agricultura Orgânica
+    };
+    return answers[questionNumber];
+}
+
+function showResults() {
+    document.getElementById('quiz-container').classList.add('hidden');
+    const resultsElement = document.getElementById('results');
+    resultsElement.classList.remove('hidden');
+
+    const scoreTextElement = document.getElementById('score-text');
+    const feedbackTextElement = document.getElementById('feedback-text');
+
+    scoreTextElement.textContent = `${score} de ${totalQuestions} corretas`;
+
+    let feedback = '';
+    if (score === totalQuestions) {
+        feedback = "Parabéns! Você é um expert em agricultura sustentável!";
+    } else if (score >= totalQuestions / 2) {
+        feedback = "Muito bom! Você tem um bom conhecimento sobre o tema.";
+    } else {
+        feedback = "Continue aprendendo! Há muito para descobrir sobre o futuro da agricultura sustentável.";
+    }
+    feedbackTextElement.textContent = feedback;
+}
+
+function restartQuiz() {
+    currentQuestion = 1;
+    score = 0;
+
+    document.getElementById('results').classList.add('hidden');
+    document.getElementById('quiz-container').classList.remove('hidden');
+
+    document.querySelectorAll('.quiz-question').forEach((q, index) => {
+        q.classList.add('hidden');
+        // Resetar estilos dos botões (se houver)
+        q.querySelectorAll('button').forEach(button => {
+            button.classList.remove('correct', 'incorrect');
+            button.disabled = false;
+        });
+    });
+
+    document.getElementById('question-1').classList.remove('hidden');
+}
+
+// --- Animação Sutil ao Scroll (Opcional) ---
+document.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const windowHeight = window.innerHeight;
+        const scrollPosition = window.scrollY;
+
+        // Se a seção estiver visível na tela
+        if (scrollPosition + windowHeight > sectionTop + 50) { // Adiciona um pequeno offset
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+        } else {
+            // Mantém opaco para não desaparecer completamente
+            section.style.opacity = '0.5';
+            section.style.transform = 'translateY(20px)';
+        }
+    });
+});
+
+// Inicializa a opacidade e transformação para as seções
+document.querySelectorAll('.section').forEach(section => {
+    section.style.opacity = '0.5';
+    section.style.transform = 'translateY(20px)';
+    section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+});
+
