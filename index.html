@@ -1,173 +1,46 @@
-<!DOCTYPE html>
-define o documento em HTML5
-<html lang="pt-BR">
-  <!-- define idioma como português do Brasil -->
- <head>
-   <!--configuraçoẽs invisíveis da página-->
-   <meta charset="UTF-8">
-  <!-- permite acentos e caractéres especiais -->
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-faz site se adaptar a celulares (responsividade)-->
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agroforte - Futuro Sustentável</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<!-- HEADER -->
-<header id="header">
-    <div class="container header-container">
-        <h1 class="logo">🌱 Agroforte</h1>
-        <nav id="menu">
-            <ul>
-                <li><a href="#home">Início</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#causas">Causas</a></li>
-                <li><a href="#solucoes">Soluções</a></li>
-                <li><a href="#sustentabilidade">Sustentabilidade</a></li>
-                <li><a href="#contato">Contato</a></li>
-                <li><a href="#quiz">Quiz</a></li>
-            </ul>
-        </nav>
-        <div class="hamburger" id="hamburger">☰</div>
-    </div>
-</header>
-
-<!-- HERO -->
-<section class="hero" id="home">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <h2 class="reveal fade">O futuro do campo está em risco</h2>
-        <p class="reveal fade-delay">Sem inovação, água e solo podem se esgotar. É hora de agir!</p>
-        <a href="#contato" class="btn reveal fade-delay2">Transforme sua fazenda</a>
-    </div>
-</section>
-
-<!-- SOBRE -->
-<section id="sobre" class="section">
-    <div class="container">
-        <h2 class="section-title reveal fade">Sobre a Agroforte</h2>
-        <p class="reveal fade-delay">
-            Unimos tecnologia, inovação e práticas sustentáveis para aumentar produtividade,
-            reduzir impactos ambientais e preparar o campo para um futuro resiliente e eficiente.
-        </p>
-    </div>
-</section>
-
-<!-- CAUSAS IMPACTANTES -->
-<section id="causas" class="section bg-light">
-    <div class="container">
-        <h2 class="section-title reveal fade">Causas Urgentes</h2>
-        <div class="cards">
-            <div class="card reveal slide-left">
-                <h3>Escassez de água</h3>
-                <p>Até 70% da água do campo é desperdiçada sem irrigação inteligente.</p>
-            </div>
-            <div class="card reveal slide-up">
-                <h3>Degradação do solo</h3>
-                <p>Uso excessivo de fertilizantes e práticas antigas degradam hectares de terra fértil.</p>
-            </div>
-            <div class="card reveal slide-right">
-                <h3>Perdas financeiras</h3>
-                <p>Produtores sem tecnologia perdem milhões por colheitas inferiores e desperdício.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SOLUÇÕES EFICIENTES -->
-<section id="solucoes" class="section">
-    <div class="container">
-        <h2 class="section-title reveal fade">Soluções de Alto Impacto</h2>
-        <div class="cards">
-            <div class="card reveal slide-left">
-                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef" alt="Automação">
-                <h3>Automação Inteligente</h3>
-                <p>Aumente produtividade em até 30% com monitoramento remoto e dados em tempo real.</p>
-            </div>
-            <div class="card reveal slide-up">
-                <img src="https://images.unsplash.com/photo-1598514983318-2f64f8f4796c" alt="Irrigação">
-                <h3>Irrigação Inteligente</h3>
-                <p>Redução de consumo de água em até 40%, mantendo produtividade e sustentabilidade.</p>
-            </div>
-            <div class="card reveal slide-right">
-                <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231" alt="Energia Renovável">
-                <h3>Energia Renovável</h3>
-                <p>Energia solar e limpa reduz custos em até 50% e minimiza impacto ambiental.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SUSTENTABILIDADE -->
-<section id="sustentabilidade" class="section bg-light">
-    <div class="container">
-        <h2 class="section-title reveal fade">Resultados Sustentáveis</h2>
-        <div class="sustentabilidade">
-            <div class="sust-text reveal slide-left">
-                <ul>
-                    <li>💧 Redução de consumo de água: -40%</li>
-                    <li>⚡ Economia de energia: -50%</li>
-                    <li>🌱 Preservação do solo e biodiversidade</li>
-                    <li>🌍 Minimização de emissões de carbono</li>
-                </ul>
-            </div>
-            <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf" alt="Sustentabilidade" class="reveal slide-right">
-        </div>
-    </div>
-</section>
-
-<!-- CONTATO -->
-<section id="contato" class="section">
-    <div class="container">
-        <h2 class="section-title reveal fade">Entre em Contato</h2>
-        <p class="reveal fade-delay">Preencha o formulário e nossa equipe iniciará sua transformação sustentável.</p>
-        <form id="formContato" class="reveal fade-delay2">
-            <input type="text" id="nome" placeholder="Nome completo" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <textarea id="mensagem" placeholder="Sua mensagem" required></textarea>
-            <button type="submit">Enviar</button>
-        </form>
-        <p id="msg" class="feedback"></p>
-    </div>
-</section>
-
-<!-- QUIZ INTERATIVO -->
-<section id="quiz" class="section bg-dark">
-    <div class="container">
-        <h2 class="section-title reveal fade">Teste seus conhecimentos</h2>
-        <div id="quiz-container" class="reveal fade-delay">
-            <p id="quiz-question">Qual prática reduz mais o consumo de água na agricultura?</p>
-            <div class="quiz-options">
-                <button class="quiz-btn">Plantio convencional</button>
-                <button class="quiz-btn">Irrigação inteligente</button>
-                <button class="quiz-btn">Uso de fertilizantes químicos</button>
-            </div>
-            <p id="quiz-feedback"></p>
-        </div>
-    </div>
-</section>
-
-<!-- VOLTAR AO TOPO -->
-<button id="topBtn">↑</button>
-
-<!-- FOOTER -->
-<footer>
-    <div class="container">
-        <p>© 2026 Agroforte - Todos os direitos reservados</p>
-        <div class="socials">
-            <a href="#">LinkedIn</a> |
-            <a href="#">Instagram</a> |
-            <a href="#">Facebook</a>
-        </div>
-    </div>
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
+Vou trocar as imagens menos conectadas ao tema (especialmente uma duplicada na seção Tecnologia) por outras 100% agro:
+Action: file_editor view /app/site/index.html
+Observation: [Showing lines 160-200 of 375 total] /app/site/index.html:
+160|            </article>
+161|
+162|            <article class="card reveal" data-reveal="up">
+163|                <div class="card-icon"><i class="fa-solid fa-tree"></i></div>
+164|                <h3>Reflorestamento Produtivo</h3>
+165|                <p>Áreas de preservação permanente recompostas com espécies nativas geram serviços ambientais.</p>
+166|            </article>
+167|
+168|            <article class="card reveal" data-reveal="up">
+169|                <div class="card-icon"><i class="fa-solid fa-sun"></i></div>
+170|                <h3>Energia Solar no Campo</h3>
+171|                <p>Painéis fotovoltaicos abastecem propriedades, reduzindo custos e emissões de carbono.</p>
+172|            </article>
+173|        </div>
+174|    </div>
+175|</section>
+176|
+177|<!-- ============== IMPACTO / ESTATÍSTICAS ============== -->
+178|<section id="impacto" class="section impacto">
+179|    <div class="impacto-bg">
+180|        <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=2000&q=80" alt="Vista aérea de plantação verde" />
+181|        <div class="impacto-overlay"></div>
+182|    </div>
+183|    <div class="container">
+184|        <div class="section-head reveal center light">
+185|            <span class="eyebrow light">03 — Impacto</span>
+186|            <h2 class="h2">Números que <em>brotam</em> esperança</h2>
+187|            <p class="lead">
+188|                Resultados reais do agro brasileiro quando ciência, tecnologia e sustentabilidade
+189|                caminham juntas.
+190|            </p>
+191|        </div>
+192|
+193|        <div class="stats">
+194|            <div class="stat reveal">
+195|                <span class="num" data-target="33" data-suffix=" mi">0</span>
+196|                <p>hectares de baixo carbono no Brasil</p>
+197|            </div>
+198|            <div class="stat reveal">
+199|                <span class="num" data-target="60" data-suffix="%">0</span>
+200|                <p>menos consumo de água com irrigação inteligente</p>
+ [41 lines shown. Remaining: lines 201-375 (175 lines). Use view_range parameter to continue.]
+               
